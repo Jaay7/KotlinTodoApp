@@ -2,8 +2,7 @@ package com.example.kotlintodoapp.repo
 
 import android.annotation.SuppressLint
 import com.example.kotlintodoapp.OnError
-import com.example.kotlintodoapp.OnFailed
-import com.example.kotlintodoapp.OnSend
+
 import com.example.kotlintodoapp.OnSuccess
 import com.example.kotlintodoapp.data.Todo
 import com.google.firebase.firestore.FirebaseFirestore
