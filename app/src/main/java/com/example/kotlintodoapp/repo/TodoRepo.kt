@@ -35,22 +35,4 @@ class TodoRepo {
         }
     }
 
-    @SuppressLint("SimpleDateFormat")
-    fun getCurrentDate():String{
-        val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS")
-        return sdf.format(Date())
-    }
-
-    fun sendTodoDetails(title: String, content: String ) {
-        val collection = firestore.collection("todos")
-        val date = getCurrentDate()
-        val todo = Todo(title, content, date, false, false)
-//        collection.add(todo)
-        collection.add(todo).addOnSuccessListener { documentReference ->
-            OnSend(documentReference)
-        }
-            .addOnFailureListener { e ->
-                OnFailed(e)
-            }
-    }
 }
