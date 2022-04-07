@@ -30,10 +30,7 @@ import com.example.kotlintodoapp.viewmodel.TodosViewModel
 import kotlinx.coroutines.flow.asStateFlow
 import java.lang.IllegalStateException
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Add
-import androidx.compose.material.icons.rounded.Check
-import androidx.compose.material.icons.rounded.Notifications
-import androidx.compose.material.icons.rounded.Save
+import androidx.compose.material.icons.rounded.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -62,7 +59,12 @@ class MainActivity : ComponentActivity() {
                                      "add_todo" -> { navController.navigate("home") }
                                  }
                              },
-                             icon = { Icon(Icons.Rounded.Add, contentDescription = "Add") },
+                             icon = {
+                                    when (currentRoute.value?.destination?.route) {
+                                        "home" -> Icon(Icons.Rounded.Add, contentDescription = "Add")
+                                        "add_todo" -> Icon(Icons.Rounded.Visibility, contentDescription = "View")
+                                    }
+                             },
                              text = {
                                  when (currentRoute.value?.destination?.route) {
                                      "home" -> Text(text = "Add Todo")
